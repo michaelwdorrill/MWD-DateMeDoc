@@ -361,10 +361,13 @@ code{
 }
 @media (max-width: 899.98px){
   .layout-snake .tile-text{
-    font-size: 2rem;          /* roughly 2× normal body size */
+    /* slightly larger than desktop, but constrained */
+    font-size: clamp(1.05rem, 4vw, 1.35rem);
+    line-height: 1.5;
   }
+
   .layout-snake .tile-text h3{
-    font-size: 2rem;        /* heading inside tiles, also bigger */
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
     margin-bottom: 0.5rem;
   }
 }
@@ -400,6 +403,27 @@ main li,
   margin: 0.5rem auto 0;     /* centers it under the text */
 }
 
+/* Tame the big header on phones / narrow screens */
+@media (max-width: 600px){
+  /* slightly thinner outline so it scales nicely */
+  :root{
+    --stroke: 2px;
+  }
+
+  .site-header{
+    padding: 2.5rem 0 1rem;
+  }
+
+  /* “Introducing...” */
+  .site-header .intro{
+    font-size: clamp(2.2rem, 7vw, 2.8rem);
+  }
+
+  /* “MICHAEL!” */
+  .site-header .name{
+    font-size: clamp(3.2rem, 12vw, 4rem);
+  }
+}
 </style>
 </head>
 <body>
